@@ -1,0 +1,19 @@
+# model weights
+*.weights.h5
+*.h5
+*.keras
+
+# data - never commit the dataset
+faces/
+*.pgm
+*.tar.gz
+*.zip
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# os
+.DS_Store
+Thumbs.db
