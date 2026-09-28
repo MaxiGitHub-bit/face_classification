@@ -5,7 +5,7 @@ This project trains a computer to look at a photograph of someone's face and say
 
 A model I built earlier scored exactly 5%. That looked like total failure.
 
-It wasn't. The models had learned to recognise faces almost perfectly. The code that *measured* their performance was broken. This repository is the investigation and the fix.
+It wasn't. The models had learned to recognise faces almost perfectly. This repository is the investigation and the fix.
 
 | | Originally reported | Actually achieves |
 |---|---|---|
@@ -27,8 +27,6 @@ Imagine marking an exam. You have the students' answers and you have the answer 
 
 That is close to what happened here. One line of code was meant to read the correct labels (*this is person 7, this is person 12*) but a mistake in how it handled the data turned every label into *person 1*. The models' answers were fine. They were being compared against a corrupted key.
 
-This also explains a detail in the original report that looked damning. It noted that 19 of the 20 people were never once identified correctly. Of course they weren't. As far as the marking code was concerned, everybody in the test set was person 1.
-
 ### Fault two: a component that behaves differently in practice than in training
 
 Neural networks often include a part called batch normalisation, which keeps the numbers flowing through the network within a sensible range. It does this one way while the model is learning and a slightly different way once the model is finished and being used for real.
@@ -36,8 +34,6 @@ Neural networks often include a part called batch normalisation, which keeps the
 To switch between the two, it needs to build up an average across many examples. With only 374 training photographs it never gathered enough for that average to settle. So the model learned well — and then, the moment it was asked to identify someone for real, it was working from unreliable internal numbers.
 
 The symptom was oddly specific: the model got steadily better at the photographs it was learning from while getting steadily *worse* at everything else. Removing that component moved the score from 9.6% to 100%.
-
-Both faults come down to the same thing. **The models were never the problem. The code around them was.**
 
 ---
 
@@ -129,8 +125,6 @@ There's a reason for that, and it's interesting. These methods fasten on to what
 
 This matters because facing-direction and sunglasses both work fine using exactly the same code. The dataset isn't unusable. It's specifically **emotion** that these photographs can't support: at this resolution and in this lighting, the difference between an angry face and a sad one is too subtle to survive.
 
-That was the finding in the original coursework, and it was right. Working through all four attributes properly is the next stage of this project.
-
 ---
 
 ## Being honest about the limits
@@ -159,9 +153,7 @@ The notebook runs beginning to end in Google Colab and downloads the dataset its
 
 ## Background
 
-This began as a university assignment and the marking specifically credited spotting the dataset's limitations.
-
-This repository is a later re-examination of the code. The original notebook isn't included, because its saved output contained folder paths from my own computer.
+This began as a university assignment and this repository is a later re-examination of the code. The original notebook isn't included, because its saved output contained folder paths from my own computer.
 
 ## Licence
 
