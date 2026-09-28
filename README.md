@@ -159,7 +159,7 @@ The notebook runs beginning to end in Google Colab and downloads the dataset its
 
 ## Background
 
-This began as a university assignment, which scored 77/100. The marking specifically credited spotting the dataset's limitations.
+This began as a university assignment and the marking specifically credited spotting the dataset's limitations.
 
 This repository is a later re-examination of the code. The original notebook isn't included, because its saved output contained folder paths from my own computer.
 
