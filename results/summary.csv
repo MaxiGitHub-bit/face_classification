@@ -1,0 +1,4 @@
+Model,Test Accuracy (%),Balanced (%),Macro F1
+Eigenfaces + LogReg (sanity baseline),99.2,99.17,
+Custom CNN,100.0,100.0,1.0
+VGG16 Transfer Learning,97.6,97.62,0.976
