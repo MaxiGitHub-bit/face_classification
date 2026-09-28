@@ -59,7 +59,7 @@ If there's one habit worth taking from this project, it's that one: **prove some
 
 ![Training curves](results/training_curves.png)
 
-These charts show both models improving as they train. One thing looks wrong at first glance: the orange line (photographs held back for checking) sits *above* the blue line (photographs used for learning). That's expected here. During training the photographs are deliberately distorted — flipped, brightened, darkened — to make the task harder and the model more robust. The held-back photographs are clean, and therefore easier.
+These charts show both models improving as they train. One thing looks wrong at first glance: the orange line (photographs held back for checking) sits *above* the blue line (photographs used for learning). That's expected here. During training the photographs are deliberately distorted 'flipped, brightened, darkened' to make the task harder and the model more robust. The held-back photographs are clean, and therefore easier.
 
 ![Confusion matrices](results/confusion_matrices.png)
 
@@ -81,19 +81,19 @@ VGG16 got 122 of 125 right. Here are the three it missed:
 
 All three have something in common. Each is a side-on or sharply tilted shot, and in each one the person is wearing dark glasses. Between the angle and the glasses, very little of the face is actually visible.
 
-So the model isn't mixing up people who look alike. It's struggling in the specific case where there isn't much face to see — a far more reassuring kind of mistake.
+So the model isn't mixing up people who look alike. It's struggling in the specific case where there isn't much face to see; a far more reassuring kind of mistake.
 
 ---
 
 ## The small model beat the big famous one
 
-The network built from scratch scored 100%. VGG16 — a well-known model trained on millions of internet photographs — scored 97.6%.
+The network built from scratch scored 100%. VGG16 is a well-known model trained on millions of internet photographs and scored 97.6%.
 
 That surprises people, since the bigger pre-trained model is usually assumed to win. The reason it didn't is worth understanding.
 
 VGG16 learned from colour photographs of everyday things: dogs, cars, furniture, food, shot in every imaginable lighting. This dataset is grey, low-resolution headshots taken in one room, on one day, under one lighting rig. Very little of what VGG16 already knows is useful here, and some of it actively gets in the way.
 
-A small network carrying no prior assumptions could simply learn this specific problem directly. **Bigger and better known is not automatically better — what matters is whether what the model already knows is relevant to the job.**
+A small network carrying no prior assumptions could simply learn this specific problem directly. **Bigger and better known is not automatically better. What matters is whether what the model already knows is relevant to the job.**
 
 ---
 
@@ -103,7 +103,7 @@ A small network carrying no prior assumptions could simply learn this specific p
 |---|---|
 | **The data** | Photographs of 20 people, 32 pictures each, from Carnegie Mellon University |
 | **The split** | 60% to learn from, 20% to check progress along the way, 20% locked away until the very end |
-| **A trap avoided** | Every photograph is stored three times at different sizes. Treating those as separate pictures would let the same face appear in both the learning set and the final test — like handing a student the exam paper in advance. Only the full-size version is used |
+| **A trap avoided** | Every photograph is stored three times at different sizes. Treating those as separate pictures would let the same face appear in both the learning set and the final test just like handing a student the exam paper in advance. Only the full-size version is used |
 | **Damaged files** | 16 files are corrupt by design and are skipped |
 | **Making it harder on purpose** | Training photographs are flipped and have their brightness and contrast altered, so the model learns the face rather than the lighting |
 | **A safety check** | The code refuses to run if any photograph turns up in more than one group |
@@ -123,7 +123,7 @@ Everything above concerns the first of those. Here's what happens with the other
 | Sunglasses or not | 50% | 88% |
 | **What expression they're wearing** | 25% | **13%** |
 
-Expression isn't merely difficult — it performs *worse than guessing*. Four different approaches were tried and every one landed between 4% and 14%.
+Expression isn't merely difficult; it performs *worse than guessing*. Four different approaches were tried and every one landed between 4% and 14%.
 
 There's a reason for that, and it's interesting. These methods fasten on to whatever varies most between photographs, and what varies most is **who the person is**, not how they feel. So the model ends up sorting pictures by person while being asked about mood, and the two have nothing to do with each other. The result is worse than a coin toss.
 
