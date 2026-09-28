@@ -25,7 +25,7 @@ Two separate faults produced the same misleading result.
 
 Imagine marking an exam. You have the students' answers and you have the answer key. But through a slip, you write "A" beside every question on the key. Now everyone who wrote anything other than A is marked wrong, no matter how well they actually did.
 
-That is close to what happened here. One line of code was meant to read the correct labels — *this is person 7, this is person 12* — but a mistake in how it handled the data turned every label into *person 1*. The models' answers were fine. They were being compared against a corrupted key.
+That is close to what happened here. One line of code was meant to read the correct labels (*this is person 7, this is person 12*) but a mistake in how it handled the data turned every label into *person 1*. The models' answers were fine. They were being compared against a corrupted key.
 
 This also explains a detail in the original report that looked damning. It noted that 19 of the 20 people were never once identified correctly. Of course they weren't. As far as the marking code was concerned, everybody in the test set was person 1.
 
@@ -127,7 +127,7 @@ Expression isn't merely difficult; it performs *worse than guessing*. Four diffe
 
 There's a reason for that, and it's interesting. These methods fasten on to whatever varies most between photographs, and what varies most is **who the person is**, not how they feel. So the model ends up sorting pictures by person while being asked about mood, and the two have nothing to do with each other. The result is worse than a coin toss.
 
-This matters because facing-direction and sunglasses both work fine using exactly the same code. The dataset isn't unusable. It's specifically **emotion** that these photographs can't support — at this resolution and in this lighting, the difference between an angry face and a sad one is too subtle to survive.
+This matters because facing-direction and sunglasses both work fine using exactly the same code. The dataset isn't unusable. It's specifically **emotion** that these photographs can't support: at this resolution and in this lighting, the difference between an angry face and a sad one is too subtle to survive.
 
 That was the finding in the original coursework, and it was right. Working through all four attributes properly is the next stage of this project.
 
