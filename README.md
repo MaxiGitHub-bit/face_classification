@@ -3,9 +3,9 @@
 
 This project trains a computer to look at a photograph of someone's face and say who it is. There are 20 people in the dataset, so a machine guessing at random would be right about 5% of the time.
 
-A model I built earlier scored exactly 5%. That looked like total failure.
+A model I built earlier scored exactly 5%.
 
-It wasn't. The models had learned to recognise faces almost perfectly. This repository is the investigation and the fix.
+The models had learned to recognise faces almost perfectly. This repository is the investigation and the fix.
 
 | | Originally reported | Actually achieves |
 |---|---|---|
